@@ -1,0 +1,21 @@
+{
+  "schema": "kitforge.custody_inputs.v1",
+  "slug": "haproxy",
+  "repo": "https://git.haproxy.org/git/haproxy-3.4.git",
+  "ref": "v3.4.6",
+  "commit": "56332c50b5291cfbbfd440d958adc988fbf87e2f",
+  "edition": "CE",
+  "ce_audit": {
+    "ce_only": true,
+    "ee_dirs_found": [],
+    "ee_stripped": [
+      "addons/51degrees",
+      "addons/deviceatlas",
+      "addons/wurfl"
+    ],
+    "allowlisted_benign_paths": [],
+    "method": "top-3-level dir scan, .git excluded, precise EE name match, strategy allowlist applied",
+    "note": "EE forks are separate products \u2014 never packaged. CE-only is pillar #1. allowlisted_benign_paths are OSS-repo artifacts named 'enterprise', NOT EE code.",
+    "rechecked_at": "package_archive"
+  }
+}

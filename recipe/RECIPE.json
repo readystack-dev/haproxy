@@ -1,0 +1,293 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "haproxy",
+ "tag": "3.4.6-CE-ubuntu24.04-r9",
+ "tarball": "ReadyStack-haproxy-3.4.6-CE-ubuntu24.04-r9.tar.gz",
+ "tarball_sha256": "0f7eb3c829846d57dfa85bbab9b204e618c3d10c33477c6dd90ba74df2a46e48",
+ "kit_root": "3.4.6-CE-ubuntu24.04-r9",
+ "generated_at": "2026-11-22T19:28:40Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://git.haproxy.org/git/haproxy-3.4.git",
+   "ref": "v3.4.6",
+   "commit": "56332c50b5291cfbbfd440d958adc988fbf87e2f",
+   "url": "https://git.haproxy.org/git/haproxy-3.4",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://git.haproxy.org/git/haproxy-3.4.git",
+    "ref": "v3.4.6"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel/releases/download/v1.5.1/chisel_v1.5.1_linux_amd64.tar.gz"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel-releases/archive/f2600d3aa90123db6d44bb1441a99afc8b5847d9.tar.gz"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "golang:1.27.3-bookworm@sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d74469ae4a595c6676e80a5",
+    "image": "golang:1.27.3-bookworm",
+    "digest": "sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d74469ae4a595c6676e80a5"
+   },
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0",
+   "builder_images": [
+    "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   ]
+  },
+  "build_method": "source-rebuild-c",
+  "source_date_epoch": 1795161056,
+  "source_date_epoch_utc": "2026-11-20T07:50:56Z",
+  "target": {
+   "image_manifest_digest": "sha256:30e9f2c8165115a842c40c40bd719e0776acacc765e3bc9879c6b04042d892e7",
+   "config_digest": "sha256:29fbc2845af018448991d8f23fd6d867ca95ef6b920404bc2319845ceb6e37c7",
+   "image": "readystack/haproxy:3.4.6-CE-ubuntu24.04-r9"
+  },
+  "checksummed_files": 3186
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 262,
+   "sha256": "c74d67688b6c48929450c3d8707c9b162330e8ed3c6d8eedde41f239185b20f2",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 390594,
+   "sha256": "4379ab4610e9d8869a8a68d202018966ea5a543497d2984a331ac2e5494649c6",
+   "lines": 3186,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 5826,
+   "sha256": "c82a1d1846c31496ddb87322e0ef33a7f7a1c6380910a0a3777f6d9c0d8f9150",
+   "lines": 73,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 5826,
+   "sha256": "c82a1d1846c31496ddb87322e0ef33a7f7a1c6380910a0a3777f6d9c0d8f9150",
+   "lines": 73,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 5826,
+   "sha256": "c82a1d1846c31496ddb87322e0ef33a7f7a1c6380910a0a3777f6d9c0d8f9150",
+   "lines": 73,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 6233,
+   "sha256": "7c4f0589bce5891384bf979c12b9181a56147372555f29a32e6ceab617a2f260",
+   "lines": 53,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 199382,
+   "sha256": "6f9e1dffb0a52f6f114b20113399cc93a8dbe03339091ec37536640712e0a84a",
+   "lines": 3464,
+   "public": "account"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 173976,
+   "sha256": "82f4089acf8a5962ec2076af3a45e1376f09464e0e28da00998a91f0d2115e17",
+   "lines": 3188,
+   "public": "account"
+  },
+  {
+   "path": "README.md",
+   "size": 3282,
+   "sha256": "0e3570bf1c083e2558b00013969e22389a98a41f0ba77ddfbe65fb48a97fa36b",
+   "lines": 39,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "ed9e00d0b2cc9c80d8a8700658c4a3b31abfd51a144d2cacc035a59302e1f062",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 281,
+   "sha256": "a317fc63ff3411a3e5c2e36cfceeba4861d9c47f0bfae0662ddc7f5d5eefd3e8",
+   "lines": 6,
+   "public": "full"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2766,
+   "sha256": "fb872bab2da48e82fe29f9fc978daec9bc325f11cc16843f75b2f372273d6623",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6081,
+   "sha256": "72824a87a782ba4506cc290e2fb755814190e81eacde632356e6e30cda843be3",
+   "lines": 60,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2023,
+   "sha256": "faf817dd65401c3fcd27863962bd4f6d93f396b2f546b62806c464addacb4e22",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 62,
+   "sha256": "6d9a4296ecce750fa870c311a495e613d0372be3e4a93e7e73188f42461ad10c",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 3047,
+   "sha256": "b4e81a50a54d49820ebff0d519a889278170fe7f814d601963c787ce1e033e8f",
+   "lines": 75,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 736,
+   "sha256": "4b93f8a169f0ff3037a3fdec3718f8436f973828f1c6d64efee713522c09b4ac",
+   "lines": 21,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 53915,
+   "sha256": "f479416e5866141c83988db37adc920739d9ef06d2e1e4238d601bf81cc65f02",
+   "lines": 1504,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 314,
+   "sha256": "f69a45fc517b812ecab680877b291e1a8444a4b41303c66a9769f65b2880c70f",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 534,
+   "sha256": "fddc54626fa91f1d32939085840af2d5d59984711f2f3a0fcd06296b7b7359d1",
+   "lines": 16,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 3307,
+   "sha256": "70787be5d7ef69134fb7bb330e0f8737438c7ed76a18a6431e3fa1862c38e45d",
+   "lines": 103,
+   "public": "account"
+  },
+  {
+   "path": "haproxy.cfg",
+   "size": 1282,
+   "sha256": "7976189010c2dd85b2e7408a2c401a0123929e095595f628807e7feaf2e81811",
+   "lines": 31,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1434,
+   "sha256": "9735044243310895ed22a0f3118366a26f6c375ac4f30e613eb4092ceadc1deb",
+   "lines": 38,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.go",
+   "size": 3179,
+   "sha256": "a8bdee17a3581f8685f58d7a8ccb7524153829f70b19c9d75e323c589de2ad8f",
+   "lines": 117,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.mod",
+   "size": 40,
+   "sha256": "a480b79acf98e4275725058076ad2a8684a2eee06c27f4337b75339c198ca92d",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 16,
+   "bytes": 330407104
+  },
+  "docs": {
+   "files": 1554,
+   "bytes": 23029665
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 1588,
+   "bytes": 140565227
+  }
+ },
+ "redacted_files": 0
+}

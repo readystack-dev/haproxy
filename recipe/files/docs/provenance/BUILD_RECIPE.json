@@ -1,0 +1,75 @@
+{
+  "schema": "kitforge.build_recipe.v1",
+  "slug": "haproxy",
+  "image": "readystack/haproxy:3.4.6-CE-ubuntu24.04-r9",
+  "build_method": "source-rebuild-c",
+  "source": {
+    "repo": "https://git.haproxy.org/git/haproxy-3.4.git",
+    "ref": "v3.4.6",
+    "build_system": "make",
+    "builder_image": "ubuntu:24.04",
+    "build_packages": [
+      "build-essential",
+      "pkg-config",
+      "libssl-dev",
+      "libpcre2-dev",
+      "liblua5.4-dev",
+      "ca-certificates"
+    ],
+    "build_env": {},
+    "source_prep": [
+      "rm -rf addons/51degrees addons/deviceatlas addons/wurfl"
+    ],
+    "ee_strip": [
+      "addons/51degrees",
+      "addons/deviceatlas",
+      "addons/wurfl"
+    ],
+    "build_cmds": [
+      "make -j\"$(nproc)\" TARGET=linux-glibc USE_OPENSSL=1 USE_QUIC=1 USE_QUIC_OPENSSL_COMPAT=1 USE_LUA=1 USE_PCRE2=1 USE_PCRE2_JIT=1 USE_PROMEX=1",
+      "make install-bin PREFIX=/opt/haproxy"
+    ],
+    "install_prefix": "/opt/haproxy",
+    "vendored_deps": true,
+    "_build_note": "Plain GNU make, no configure. The Makefile auto-detects Lua 5.4 under /usr/include/lua5.4 and the library name lua5.4 (Makefile check_lua_inc/check_lua_lib); libcrypt (USE_LIBCRYPT, a linux-glibc default) comes from libcrypt-dev, which build-essential's libc6-dev pulls in on the ubuntu:24.04 builder (libcrypt1 is in the runtime base). In-tree code only: SLZ compression, ebtree, xxhash, mjson (MIT), the Prometheus exporter addon -- no dependency download. `make install-bin PREFIX=/opt/haproxy` installs exactly /opt/haproxy/sbin/haproxy (install-bin is in the Makefile's IGNORE_OPTS, so it does not re-evaluate the USE_* options; checked locally). install-admin (haproxy-reload / haproxy-dump-certs shell scripts that need socat), install-man and install-doc are deliberately skipped. NEVER run `make reg-tests` (needs VTest, fetched separately).",
+    "source_date_epoch": 1795161056,
+    "source_date_epoch_provenance": "the time release 3.4.6-CE-ubuntu24.04-r9 was cut (2026-11-20T07:50:56Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 56332c50b529, dated 2026-09-28T14:04:34Z (source.commit_epoch).",
+    "commit": "56332c50b5291cfbbfd440d958adc988fbf87e2f",
+    "source_date_epoch_basis": "release-cut",
+    "commit_epoch": 1790604274
+  },
+  "binaries_from_source": null,
+  "runtime_packages": [
+    "base-files",
+    "base-passwd",
+    "ca-certificates",
+    "coreutils",
+    "dash",
+    "gcc-14-base",
+    "libc6",
+    "libcrypt1",
+    "libgcc-s1",
+    "liblua5.4-0",
+    "libpcre2-8-0",
+    "libssl3t64",
+    "libstdc++6",
+    "openssl",
+    "tzdata"
+  ],
+  "runtime_base": {
+    "kind": "chisel",
+    "shell": true,
+    "tools": [],
+    "slices": [
+      "libssl3t64_libs",
+      "libpcre2-8-0_libs",
+      "liblua5.4-0_libs",
+      "libcrypt1_libs",
+      "libgcc-s1_libs"
+    ],
+    "provides": [
+      "haproxy"
+    ],
+    "packages": "vendored/chisel/packages.tsv"
+  }
+}

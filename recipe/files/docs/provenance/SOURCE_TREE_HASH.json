@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "haproxy",
+  "repo": "https://git.haproxy.org/git/haproxy-3.4.git",
+  "ref": "v3.4.6",
+  "commit": "56332c50b5291cfbbfd440d958adc988fbf87e2f",
+  "tree_listing_sha256": "98cbc2f2c71839bc24fb4454799e109179f1a5360386051ccc40b4b2b88c6216",
+  "file_count": 1497
+}

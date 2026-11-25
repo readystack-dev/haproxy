@@ -1,0 +1,6 @@
+image_manifest_digest=sha256:30e9f2c8165115a842c40c40bd719e0776acacc765e3bc9879c6b04042d892e7
+config_digest=sha256:29fbc2845af018448991d8f23fd6d867ca95ef6b920404bc2319845ceb6e37c7
+tag=readystack/haproxy:3.4.6-CE-ubuntu24.04-r9
+probe_port=8080
+probe_path=/healthz
+probe_timeout=180
